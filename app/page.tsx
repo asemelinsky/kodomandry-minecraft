@@ -30,7 +30,7 @@ export default function HomePage() {
               <span className="text-[var(--color-mc-diamond)] font-semibold">
                 кодомандрів
               </span>{" "}
-              (так-так, тебе теж!).
+              (якщо ти це читаєш — вітаємо, ти вже один з нас).
             </p>
             <p>
               Тут ти не просто будуєш будинки з кубиків — ти програмуєш роботів,
