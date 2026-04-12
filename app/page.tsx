@@ -90,8 +90,8 @@ export default function HomePage() {
           <DownloadCard
             os="macOS"
             emoji="🍎"
-            disabled
-            hint="🚧 У розробці. Напиши вчителю — дамо ручну інструкцію"
+            href="https://github.com/asemelinsky/kodomandry-installer/releases/latest/download/kodomandry-installer-macos.zip"
+            hint="Розпакуй → Terminal → ./install.sh (beta, тестується)"
           />
         </div>
 
