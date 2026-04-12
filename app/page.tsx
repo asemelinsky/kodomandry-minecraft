@@ -65,22 +65,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <ModSection
-        id="educational"
-        title="📚 Навчальні моди"
-        subtitle="Програмування, інженерія, логіка — те, що прокачує мозок"
-        accentVar="--color-mc-diamond"
-        mods={educationalMods}
-      />
-
-      <ModSection
-        id="fun"
-        title="🎭 Розважальні моди"
-        subtitle="Пригоди, істоти, декор — те, що робить гру живою"
-        accentVar="--color-mc-redstone"
-        mods={funMods}
-      />
-
       {/* DOWNLOAD */}
       <section
         id="download"
@@ -88,7 +72,7 @@ export default function HomePage() {
       >
         <div className="mb-8">
           <h2 className="font-[family-name:var(--font-heading)] text-4xl md:text-5xl leading-none mb-2 text-[var(--color-mc-gold)]">
-            📥 Скачати і грати
+            📥 Звантажити і грати
           </h2>
           <p className="text-muted-foreground">
             Один клік — і в тебе вже є лаунчер, Java, модпак і сервер у списку
@@ -115,6 +99,22 @@ export default function HomePage() {
           Сервер: <code className="font-mono">46.225.227.42:25566</code> · Minecraft 1.21.1 · NeoForge
         </p>
       </section>
+
+      <ModSection
+        id="educational"
+        title="📚 Навчальні моди"
+        subtitle="Програмування, інженерія, логіка — те, що прокачує мозок"
+        accentVar="--color-mc-diamond"
+        mods={educationalMods}
+      />
+
+      <ModSection
+        id="fun"
+        title="🎭 Розважальні моди"
+        subtitle="Пригоди, істоти, декор — те, що робить гру живою"
+        accentVar="--color-mc-redstone"
+        mods={funMods}
+      />
 
       <footer className="border-t border-border mt-16 py-8 text-center text-sm text-muted-foreground">
         <p>Kodomandry · Minecraft сервер для юних айтішників · NeoForge 1.21.1</p>
