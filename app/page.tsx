@@ -72,7 +72,7 @@ export default function HomePage() {
       >
         <div className="mb-8">
           <h2 className="font-[family-name:var(--font-heading)] text-4xl md:text-5xl leading-none mb-2 text-[var(--color-mc-gold)]">
-            📥 Звантажити і грати
+            📥 Скачати, Навчатись, Грати
           </h2>
           <p className="text-muted-foreground">
             Один клік — і в тебе вже є лаунчер, Java, модпак і сервер у списку
