@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { educationalMods, funMods } from "./data/mods";
 import { ModCard } from "@/components/mod-card";
 
@@ -91,7 +92,43 @@ export default function HomePage() {
             os="macOS"
             emoji="🍎"
             href="https://github.com/asemelinsky/kodomandry-installer/releases/latest/download/kodomandry-installer-macos.zip"
-            hint="Розпакуй → Terminal → ./install.sh (beta, тестується)"
+            hint="Розпакуй ZIP → подвійний клік на install.command"
+            details={
+              <>
+                <p className="font-semibold text-foreground/90">
+                  ⚠️ macOS заблокує файл при першому запуску — це нормально
+                </p>
+                <ol className="mt-2 space-y-1.5 list-decimal list-inside">
+                  <li>
+                    З&apos;явиться вікно <em>&quot;install.command не
+                    відкрито&quot;</em> — натисни <strong>Готово</strong>
+                  </li>
+                  <li>
+                    Відкрий <strong>Системні налаштування → Конфіденційність
+                    і безпека</strong>
+                  </li>
+                  <li>
+                    Прокрути вниз до секції <strong>Безпека</strong>
+                  </li>
+                  <li>
+                    Побачиш <em>&quot;install.command заблоковано…&quot;</em>
+                    {" "}— натисни <strong>Все одно відкрити</strong>{" "}
+                    <span className="text-muted-foreground">
+                      (Open Anyway / Dennoch öffnen)
+                    </span>
+                  </li>
+                  <li>Введи пароль Mac якщо попросить</li>
+                  <li>
+                    У діалозі що з&apos;явиться —{" "}
+                    <strong>Відкрити</strong>
+                  </li>
+                </ol>
+                <p className="mt-3 text-muted-foreground">
+                  Після цього відкриється Terminal і піде установка. Запитає
+                  нікнейм — введи свій (3-16 символів, латиниця).
+                </p>
+              </>
+            }
           />
         </div>
 
@@ -134,6 +171,7 @@ function DownloadCard({
   hint,
   primary,
   disabled,
+  details,
 }: {
   os: string;
   emoji: string;
@@ -141,14 +179,23 @@ function DownloadCard({
   hint: string;
   primary?: boolean;
   disabled?: boolean;
+  details?: ReactNode;
 }) {
-  const classes =
-    "flex items-center gap-4 p-5 rounded-lg border-2 transition-all " +
+  const wrapperClasses =
+    "rounded-lg border-2 transition-all overflow-hidden " +
     (disabled
-      ? "border-border bg-card/40 opacity-60 cursor-not-allowed"
+      ? "border-border bg-card/40 opacity-60"
       : primary
-        ? "border-[var(--color-mc-grass)] bg-[var(--color-mc-grass)]/10 hover:bg-[var(--color-mc-grass)]/20"
+        ? "border-[var(--color-mc-grass)] bg-[var(--color-mc-grass)]/10"
         : "border-border hover:border-[var(--color-mc-grass)]/60");
+
+  const rowClasses =
+    "flex items-center gap-4 p-5 " +
+    (disabled
+      ? "cursor-not-allowed"
+      : primary
+        ? "hover:bg-[var(--color-mc-grass)]/10"
+        : "");
 
   const content = (
     <>
@@ -169,13 +216,32 @@ function DownloadCard({
     </>
   );
 
-  if (disabled || !href) {
-    return <div className={classes}>{content}</div>;
-  }
+  const row =
+    disabled || !href ? (
+      <div className={rowClasses}>{content}</div>
+    ) : (
+      <a href={href} className={rowClasses}>
+        {content}
+      </a>
+    );
+
   return (
-    <a href={href} className={classes}>
-      {content}
-    </a>
+    <div className={wrapperClasses}>
+      {row}
+      {details && (
+        <details className="group border-t border-border/60">
+          <summary className="cursor-pointer select-none px-5 py-3 text-sm text-muted-foreground hover:text-foreground flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
+            <span>📖 Як дозволити запуск на macOS</span>
+            <span className="text-xs transition-transform group-open:rotate-180" aria-hidden>
+              ▼
+            </span>
+          </summary>
+          <div className="px-5 pb-5 pt-1 text-sm leading-relaxed">
+            {details}
+          </div>
+        </details>
+      )}
+    </div>
   );
 }
 
