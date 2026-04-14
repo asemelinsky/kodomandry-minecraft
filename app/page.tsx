@@ -141,15 +141,13 @@ export default function HomePage() {
             🧩 Постійний лінк на модпак
           </p>
           <p className="mt-1 text-muted-foreground">
-            Якщо вже користуєшся Prism Launcher і хочеш імпортувати модпак вручну — ось пряме посилання на{" "}
-            <strong>завжди актуальну</strong> збірку для сервера:
+            Якщо вже користуєшся Prism Launcher і хочеш імпортувати модпак вручну — скопіюй це посилання на{" "}
+            <strong>завжди актуальну</strong> збірку і встав у Prism Launcher:{" "}
+            <em>Add Instance → Import from URL</em>.
           </p>
-          <a
-            href="https://github.com/asemelinsky/kodomandy-modpack/releases/latest/download/kodomandy-server2.mrpack"
-            className="mt-2 inline-block font-mono text-xs break-all text-[var(--color-mc-diamond)] hover:underline"
-          >
-            github.com/asemelinsky/kodomandy-modpack/releases/latest/download/kodomandy-server2.mrpack
-          </a>
+          <code className="mt-3 block font-mono text-xs break-all rounded-md bg-background/70 border border-border/60 px-3 py-2 text-[var(--color-mc-diamond)] select-all">
+            https://github.com/asemelinsky/kodomandy-modpack/releases/latest/download/kodomandy-server2.mrpack
+          </code>
         </div>
       </section>
 
