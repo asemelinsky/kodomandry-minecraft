@@ -230,19 +230,6 @@ export const mods: Mod[] = [
     officialLabel: "Modrinth",
   },
   {
-    id: "spore",
-    name: "Spore",
-    emoji: "🦠",
-    category: "fun",
-    version: "2.2.0c (NeoForge 1.21.1)",
-    shortDescription:
-      "Зомбі-гриб захоплює світ! Біжи, рубай і не дай собі заразитися.",
-    fullDescription:
-      "Натхненний The Last of Us: гриб Spore заражає мобів, перетворює їх на сердитих зомбі, і поступово захоплює біоми. Треба воювати, зачищати, виживати. Додає мод справжньої хардкорної атмосфери.",
-    officialUrl: "https://modrinth.com/mod/spore",
-    officialLabel: "Modrinth",
-  },
-  {
     id: "mutant-monsters",
     name: "Mutant Monsters",
     emoji: "👹",
