@@ -87,13 +87,25 @@ export default function HomePage() {
             emoji="🪟"
             href="https://github.com/asemelinsky/kodomandry-installer/releases/latest/download/KodomandryInstaller.exe"
             primary
-            hint="Подвійний клік. Якщо SmartScreen — More info → Run anyway"
+            hint={
+              <ol className="list-decimal list-inside space-y-0.5">
+                <li>Скачай <code className="font-mono text-xs">KodomandryInstaller.exe</code></li>
+                <li>Запусти подвійним кліком</li>
+                <li>Якщо SmartScreen — <strong>More info</strong> → <strong>Run anyway</strong></li>
+              </ol>
+            }
           />
           <DownloadCard
             os="macOS"
             emoji="🍎"
             href="https://github.com/asemelinsky/kodomandry-installer/releases/latest/download/install.command"
-            hint="Правий клік на install.command → Відкрити"
+            hint={
+              <ol className="list-decimal list-inside space-y-0.5">
+                <li>Скачай <code className="font-mono text-xs">install.command</code></li>
+                <li>Правий клік на файл → <strong>Відкрити</strong></li>
+                <li>Якщо заблоковано — дивись інструкцію нижче ↓</li>
+              </ol>
+            }
             details={
               <>
                 <p className="font-semibold text-foreground/90">
@@ -182,7 +194,7 @@ function DownloadCard({
   os: string;
   emoji: string;
   href?: string;
-  hint: string;
+  hint: ReactNode;
   primary?: boolean;
   disabled?: boolean;
   details?: ReactNode;
