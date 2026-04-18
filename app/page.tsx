@@ -136,20 +136,6 @@ export default function HomePage() {
         <p className="mt-6 text-xs text-muted-foreground">
           Сервер: <code className="font-mono">46.225.227.42:25566</code> · Minecraft 1.21.1 · NeoForge
         </p>
-
-        <div className="mt-6 rounded-lg border border-border/60 bg-card/40 p-4 text-sm">
-          <p className="font-semibold text-foreground/90">
-            🧩 Постійний лінк на модпак
-          </p>
-          <p className="mt-1 text-muted-foreground">
-            Якщо вже користуєшся Prism Launcher і хочеш імпортувати модпак вручну — скопіюй це посилання на{" "}
-            <strong>завжди актуальну</strong> збірку і встав у Prism Launcher:{" "}
-            <em>Add Instance → Import from URL</em>.
-          </p>
-          <code className="mt-3 block font-mono text-xs break-all rounded-md bg-background/70 border border-border/60 px-3 py-2 text-[var(--color-mc-diamond)] select-all">
-            https://github.com/asemelinsky/kodomandy-modpack/releases/latest/download/kodomandy-server2.mrpack
-          </code>
-        </div>
       </section>
 
       <ModSection
