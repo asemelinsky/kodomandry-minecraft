@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Link from "next/link";
 import { educationalMods, funMods } from "./data/mods";
 import { ModCard } from "@/components/mod-card";
 
@@ -84,15 +85,15 @@ export default function HomePage() {
           <DownloadCard
             os="Windows 10 / 11"
             emoji="🪟"
-            href="https://github.com/asemelinsky/kodomandry-installer/releases/latest/download/kodomandry-installer-windows.zip"
+            href="https://github.com/asemelinsky/kodomandry-installer/releases/latest/download/KodomandryInstaller.exe"
             primary
-            hint="Розпакуй ZIP → подвійний клік на install.cmd"
+            hint="Подвійний клік. Якщо SmartScreen — More info → Run anyway"
           />
           <DownloadCard
             os="macOS"
             emoji="🍎"
-            href="https://github.com/asemelinsky/kodomandry-installer/releases/latest/download/kodomandry-installer-macos.zip"
-            hint="Розпакуй ZIP → подвійний клік на install.command"
+            href="https://github.com/asemelinsky/kodomandry-installer/releases/latest/download/install.command"
+            hint="Правий клік на install.command → Відкрити"
             details={
               <>
                 <p className="font-semibold text-foreground/90">
@@ -172,6 +173,11 @@ export default function HomePage() {
         <p className="mt-2 text-xs">
           Довідник оновлюється разом із сервером. Знайшов помилку або мод не
           описаний? Напиши вчителю!
+        </p>
+        <p className="mt-3 text-xs">
+          <Link href="/privacy" className="hover:text-foreground underline">
+            Privacy Policy
+          </Link>
         </p>
       </footer>
     </main>
