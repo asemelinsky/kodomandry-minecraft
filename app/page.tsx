@@ -85,24 +85,25 @@ export default function HomePage() {
           <DownloadCard
             os="Windows 10 / 11"
             emoji="🪟"
-            href="https://github.com/asemelinsky/kodomandry-installer/releases/latest/download/KodomandryInstaller.exe"
+            href="https://github.com/asemelinsky/kodomandry-installer/releases/latest/download/kodomandry-installer-windows.zip"
             primary
             hint={
               <ol className="list-decimal list-inside space-y-0.5">
-                <li>Скачай <code className="font-mono text-xs">KodomandryInstaller.exe</code></li>
-                <li>Запусти подвійним кліком</li>
-                <li>Якщо SmartScreen — <strong>More info</strong> → <strong>Run anyway</strong></li>
+                <li>Скачай <code className="font-mono text-xs">kodomandry-installer-windows.zip</code></li>
+                <li>Розпакуй архів (правий клік → <strong>Витягти все</strong>)</li>
+                <li>Запусти <code className="font-mono text-xs">install.cmd</code> подвійним кліком</li>
               </ol>
             }
           />
           <DownloadCard
             os="macOS"
             emoji="🍎"
-            href="https://github.com/asemelinsky/kodomandry-installer/releases/latest/download/install.command"
+            href="https://github.com/asemelinsky/kodomandry-installer/releases/latest/download/kodomandry-installer-macos.zip"
             hint={
               <ol className="list-decimal list-inside space-y-0.5">
-                <li>Скачай <code className="font-mono text-xs">install.command</code></li>
-                <li>Правий клік на файл → <strong>Відкрити</strong></li>
+                <li>Скачай <code className="font-mono text-xs">kodomandry-installer-macos.zip</code></li>
+                <li>Розпакуй архів (подвійний клік)</li>
+                <li>Правий клік на <code className="font-mono text-xs">install.command</code> → <strong>Відкрити</strong></li>
                 <li>Якщо заблоковано — дивись інструкцію нижче ↓</li>
               </ol>
             }
