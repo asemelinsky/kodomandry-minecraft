@@ -92,6 +92,7 @@ export default function HomePage() {
                 <li>Скачай <code className="font-mono text-xs">kodomandry-installer-windows.zip</code></li>
                 <li>Розпакуй архів (правий клік → <strong>Витягти все</strong>)</li>
                 <li>Запусти <code className="font-mono text-xs">install.cmd</code> подвійним кліком</li>
+                <li>Якщо SmartScreen/Defender блокує — <strong>Докладніше</strong> → <strong>Виконати попри все</strong></li>
               </ol>
             }
           />
