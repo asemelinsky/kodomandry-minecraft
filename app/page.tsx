@@ -106,10 +106,9 @@ export default function HomePage() {
                 <li>Скачай <code className="font-mono text-xs">kodomandry-installer-macos.zip</code></li>
                 <li>Розпакуй архів (подвійний клік)</li>
                 <li>Подвійний клік на <code className="font-mono text-xs">install.command</code></li>
-                <li><strong>⚠️ Побачиш вікно &quot;cannot be opened&quot; — це нормально!</strong> Читай інструкцію нижче ↓</li>
+                <li><strong>⚠️ Якщо побачиш &quot;cannot be opened&quot;</strong> — розкрий інструкцію нижче ↓</li>
               </ol>
             }
-            detailsOpen
             details={
               <>
                 <p className="font-semibold text-foreground/90">
