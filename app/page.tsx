@@ -104,43 +104,66 @@ export default function HomePage() {
               <ol className="list-decimal list-inside space-y-0.5">
                 <li>Скачай <code className="font-mono text-xs">kodomandry-installer-macos.zip</code></li>
                 <li>Розпакуй архів (подвійний клік)</li>
-                <li>Правий клік на <code className="font-mono text-xs">install.command</code> → <strong>Відкрити</strong></li>
-                <li>Якщо заблоковано — дивись інструкцію нижче ↓</li>
+                <li>Подвійний клік на <code className="font-mono text-xs">install.command</code></li>
+                <li><strong>⚠️ Побачиш вікно &quot;cannot be opened&quot; — це нормально!</strong> Читай інструкцію нижче ↓</li>
               </ol>
             }
+            detailsOpen
             details={
               <>
                 <p className="font-semibold text-foreground/90">
-                  ⚠️ macOS заблокує файл при першому запуску — це нормально
+                  ⚠️ macOS блокує усі файли з інтернету — треба один раз дозволити
                 </p>
-                <ol className="mt-2 space-y-1.5 list-decimal list-inside">
+                <ol className="mt-3 space-y-2 list-decimal list-inside">
                   <li>
-                    З&apos;явиться вікно <em>&quot;install.command не
-                    відкрито&quot;</em> — натисни <strong>Готово</strong>
+                    Вікно{" "}
+                    <em>
+                      &quot;install.command cannot be opened because it is from
+                      an unidentified developer&quot;
+                    </em>{" "}
+                    (або українською{" "}
+                    <em>&quot;install.command неможливо відкрити&quot;</em>) —
+                    натисни <strong>OK</strong> (на українській macOS —{" "}
+                    <strong>Готово</strong>).
                   </li>
                   <li>
-                    Відкрий <strong>Системні налаштування → Конфіденційність
-                    і безпека</strong>
+                    Відкрий <strong>System Settings</strong> (Системні
+                    налаштування) — значок шестерінки у Dock, або натисни{" "}
+                    <kbd className="px-1 py-0.5 bg-muted rounded text-xs">⌘</kbd>+<kbd className="px-1 py-0.5 bg-muted rounded text-xs">Space</kbd>{" "}
+                    і набери <em>System Settings</em>.
                   </li>
                   <li>
-                    Прокрути вниз до секції <strong>Безпека</strong>
+                    Зліва обери <strong>Privacy &amp; Security</strong>{" "}
+                    (Конфіденційність і безпека). Прокрути праву частину вниз
+                    до секції <strong>Security</strong> (Безпека).
                   </li>
                   <li>
-                    Побачиш <em>&quot;install.command заблоковано…&quot;</em>
-                    {" "}— натисни <strong>Все одно відкрити</strong>{" "}
-                    <span className="text-muted-foreground">
-                      (Open Anyway / Dennoch öffnen)
-                    </span>
+                    Знайди рядок{" "}
+                    <em>
+                      &quot;install.command was blocked to protect your Mac&quot;
+                    </em>{" "}
+                    (або <em>&quot;install.command заблоковано…&quot;</em>) і
+                    натисни праворуч кнопку{" "}
+                    <strong>Open Anyway</strong> (Все одно відкрити).
                   </li>
-                  <li>Введи пароль Mac якщо попросить</li>
                   <li>
-                    У діалозі що з&apos;явиться —{" "}
-                    <strong>Відкрити</strong>
+                    Введи пароль Mac якщо попросить (або приклади палець до
+                    Touch ID).
+                  </li>
+                  <li>
+                    З&apos;явиться ще одне вікно — цього разу з кнопкою{" "}
+                    <strong>Open</strong> (Відкрити). Натисни її.
+                  </li>
+                  <li>
+                    Відкриється чорне вікно <strong>Terminal</strong> — це
+                    нормально, йде установка. Коли попросить — введи нікнейм
+                    (3-16 символів, тільки латиниця і цифри).
                   </li>
                 </ol>
-                <p className="mt-3 text-muted-foreground">
-                  Після цього відкриється Terminal і піде установка. Запитає
-                  нікнейм — введи свій (3-16 символів, латиниця).
+                <p className="mt-3 text-xs text-muted-foreground">
+                  💡 Це треба зробити лише один раз. Наступного разу — просто
+                  подвійний клік на ярлик <strong>Kodomandry Minecraft</strong>{" "}
+                  без жодних дозволів.
                 </p>
               </>
             }
@@ -192,6 +215,7 @@ function DownloadCard({
   primary,
   disabled,
   details,
+  detailsOpen,
 }: {
   os: string;
   emoji: string;
@@ -200,6 +224,7 @@ function DownloadCard({
   primary?: boolean;
   disabled?: boolean;
   details?: ReactNode;
+  detailsOpen?: boolean;
 }) {
   const wrapperClasses =
     "rounded-lg border-2 transition-all overflow-hidden " +
@@ -249,7 +274,7 @@ function DownloadCard({
     <div className={wrapperClasses}>
       {row}
       {details && (
-        <details className="group border-t border-border/60">
+        <details open={detailsOpen} className="group border-t border-border/60">
           <summary className="cursor-pointer select-none px-5 py-3 text-sm text-muted-foreground hover:text-foreground flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
             <span>📖 Як дозволити запуск на macOS</span>
             <span className="text-xs transition-transform group-open:rotate-180" aria-hidden>
