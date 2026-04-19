@@ -93,6 +93,7 @@ export default function HomePage() {
                 <li>Розпакуй архів (правий клік → <strong>Витягти все</strong>)</li>
                 <li>Запусти <code className="font-mono text-xs">install.cmd</code> подвійним кліком</li>
                 <li>Якщо SmartScreen/Defender блокує — <strong>Докладніше</strong> → <strong>Виконати попри все</strong></li>
+                <li>Далі — читай і натискай <strong>OK</strong> у спливаючих вікнах</li>
               </ol>
             }
           />
@@ -154,12 +155,13 @@ export default function HomePage() {
                     З&apos;явиться ще одне вікно — цього разу з кнопкою{" "}
                     <strong>Open</strong> (Відкрити). Натисни її.
                   </li>
-                  <li>
-                    Відкриється чорне вікно <strong>Terminal</strong> — це
-                    нормально, йде установка. Коли попросить — введи нікнейм
-                    (3-16 символів, тільки латиниця і цифри).
-                  </li>
                 </ol>
+                <p className="mt-3 text-sm text-foreground/90">
+                  🎉 Все! Далі установник сам показуватиме підказки у
+                  спливаючих вікнах — читай їх і натискай <strong>OK</strong>.
+                  Коли попросить нікнейм — введи свій (3-16 символів, латиниця
+                  і цифри).
+                </p>
                 <p className="mt-3 text-xs text-muted-foreground">
                   💡 Це треба зробити лише один раз. Наступного разу — просто
                   подвійний клік на ярлик <strong>Kodomandry Minecraft</strong>{" "}
