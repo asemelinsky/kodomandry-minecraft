@@ -317,21 +317,39 @@ function ModSection({
 }) {
   return (
     <section id={id} className="max-w-5xl mx-auto px-5 py-12 md:py-16">
-      <div className="mb-8">
-        <h2
-          className="font-[family-name:var(--font-heading)] text-4xl md:text-5xl leading-none mb-2"
-          style={{ color: `var(${accentVar})` }}
+      <details className="group">
+        <summary
+          className="cursor-pointer select-none list-none [&::-webkit-details-marker]:hidden mb-8 rounded-lg -mx-3 px-3 py-2 hover:bg-muted/30 transition-colors"
         >
-          {title}
-        </h2>
-        <p className="text-muted-foreground">{subtitle}</p>
-      </div>
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <h2
+                className="font-[family-name:var(--font-heading)] text-4xl md:text-5xl leading-none mb-2"
+                style={{ color: `var(${accentVar})` }}
+              >
+                {title}
+              </h2>
+              <p className="text-muted-foreground">{subtitle}</p>
+              <p className="mt-2 text-xs text-muted-foreground/80">
+                {mods.length} {mods.length === 1 ? "мод" : mods.length < 5 ? "моди" : "модів"}
+                {" "}— клікни щоб показати ↓
+              </p>
+            </div>
+            <span
+              className="text-2xl shrink-0 mt-2 transition-transform group-open:rotate-180 text-muted-foreground"
+              aria-hidden
+            >
+              ▼
+            </span>
+          </div>
+        </summary>
 
-      <div className="grid gap-4 md:grid-cols-2">
-        {mods.map((mod) => (
-          <ModCard key={mod.id} mod={mod} />
-        ))}
-      </div>
+        <div className="grid gap-4 md:grid-cols-2">
+          {mods.map((mod) => (
+            <ModCard key={mod.id} mod={mod} />
+          ))}
+        </div>
+      </details>
     </section>
   );
 }
