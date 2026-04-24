@@ -224,6 +224,32 @@ export const mods: Mod[] = [
     officialUrl: "https://modrinth.com/mod/tfmg",
     officialLabel: "Modrinth",
   },
+  {
+    id: "create-aeronautics",
+    name: "Create: Aeronautics",
+    emoji: "✈️",
+    category: "educational",
+    version: "1.0.3 bundled (NeoForge 1.21.1)",
+    shortDescription:
+      "Літаки, дирижаблі, автомобілі з реальною фізикою — аеродинаміка і інженерія на Create.",
+    fullDescription:
+      "Інженерна верхівка Create: твої контрапшени тепер літають і їздять з реальною фізикою — повітряний опір, центр тяжіння, тяга двигунів, керування рулями. Щоб літак не перекинувся, треба думати як інженер-конструктор. Використовує фізичний движок Sable під капотом. Обережно: важкий мод, потребує потужного ПК. Якщо лагає — попроси вчителя видалити.",
+    officialUrl: "https://modrinth.com/mod/create-aeronautics",
+    officialLabel: "Modrinth",
+  },
+  {
+    id: "create-interiors",
+    name: "Create: Interiors",
+    emoji: "🛋️",
+    category: "educational",
+    version: "0.6.1 (NeoForge 1.21.1)",
+    shortDescription:
+      "Меблі та декор у стилі Create — завершуй інженерну базу справжнім інтер'єром.",
+    fullDescription:
+      "Коли фабрика збудована, настає час оформити житло. Крісла, обідній стіл, диван, ліжко, кухонна плита та шафки — все у фірмовому стилі Create з мідними і латунними акцентами. Чистий декор без механіки — доповнення до інженерного антуражу.",
+    officialUrl: "https://modrinth.com/mod/create-interiors",
+    officialLabel: "Modrinth",
+  },
 
   // ===== РОЗВАЖАЛЬНІ =====
   {
@@ -348,32 +374,6 @@ export const mods: Mod[] = [
     fullDescription:
       "Дозволяє мати власний скін навіть без офіційного акаунта. Підтримує кілька джерел скінів, кейпи, HD-текстури. Тепер ти можеш виглядати як твій улюблений персонаж.",
     officialUrl: "https://modrinth.com/mod/customskinloader",
-    officialLabel: "Modrinth",
-  },
-  {
-    id: "create-aeronautics",
-    name: "Create: Aeronautics",
-    emoji: "✈️",
-    category: "fun",
-    version: "1.0.3 bundled (NeoForge 1.21.1)",
-    shortDescription:
-      "Літаки, дирижаблі, автомобілі з реальною фізикою — збирай свій транспорт з Create.",
-    fullDescription:
-      "Найкрутіше доповнення до Create: тепер твої контрапшени літають! Будуєш крилатий літак, дирижабль, гоночне авто — і воно реально літає чи їздить з фізикою (повітряний опір, гравітація, керування). Використовує фізичний движок Sable під капотом. Обережно: важкий мод, потребує потужного ПК. Якщо лагає — попроси вчителя видалити.",
-    officialUrl: "https://modrinth.com/mod/create-aeronautics",
-    officialLabel: "Modrinth",
-  },
-  {
-    id: "create-interiors",
-    name: "Create: Interiors",
-    emoji: "🛋️",
-    category: "fun",
-    version: "0.6.1 (NeoForge 1.21.1)",
-    shortDescription:
-      "Меблі та декор у стилі Create — стільці, стіл, дивани, кухонна техніка.",
-    fullDescription:
-      "Тепер твій дім може виглядати як справжній дім: м'які крісла, обідній стіл, диван, ліжко з подушками, кухонна плита та шафки — все у фірмовому стилі Create з мідними і латунними акцентами. Чистий декор без механіки — просто щоб зробити базу затишною.",
-    officialUrl: "https://modrinth.com/mod/create-interiors",
     officialLabel: "Modrinth",
   },
 ];
