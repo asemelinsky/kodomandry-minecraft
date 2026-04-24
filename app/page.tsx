@@ -17,8 +17,13 @@ export default function HomePage() {
           aria-hidden
         />
         <div className="relative max-w-5xl mx-auto px-5 py-16 md:py-24">
-          <div className="inline-block px-3 py-1 rounded bg-[var(--color-mc-grass)]/20 border border-[var(--color-mc-grass)]/40 text-[var(--color-mc-grass)] text-xs font-mono mb-6">
-            NeoForge 1.21.1 · Minecraft сервер
+          <div className="inline-flex items-center gap-2 mb-6 font-mono text-xs">
+            <span className="px-3 py-1 rounded bg-[var(--color-mc-grass)]/20 border border-[var(--color-mc-grass)]/40 text-[var(--color-mc-grass)]">
+              NeoForge 1.21.1 · Minecraft сервер
+            </span>
+            <span className="px-3 py-1 rounded bg-[var(--color-mc-gold)]/20 border border-[var(--color-mc-gold)]/40 text-[var(--color-mc-gold)]">
+              Модпак v1.6.0
+            </span>
           </div>
 
           <h1 className="font-[family-name:var(--font-heading)] text-5xl md:text-7xl leading-none text-[var(--color-mc-gold)] mb-6">
@@ -172,8 +177,28 @@ export default function HomePage() {
         </div>
 
         <p className="mt-6 text-xs text-muted-foreground">
-          Сервер: <code className="font-mono">46.225.227.42:25566</code> · Minecraft 1.21.1 · NeoForge
+          Сервер: <code className="font-mono">46.225.227.42:25566</code> · Minecraft 1.21.1 · NeoForge 21.1.222 · Модпак v1.6.0
         </p>
+
+        <details className="mt-4 group">
+          <summary className="cursor-pointer select-none text-xs text-muted-foreground hover:text-foreground transition-colors">
+            🧩 Вже є Prism Launcher? Імпортуй модпак напряму ↓
+          </summary>
+          <div className="mt-3 rounded-lg border border-border bg-card/60 p-4 text-sm space-y-2">
+            <p>
+              У Prism: <strong>Add Instance</strong> →{" "}
+              <strong>Import from Modrinth</strong> →{" "}
+              <strong>Import from file</strong> і встав URL:
+            </p>
+            <pre className="text-xs bg-background/80 p-2 rounded overflow-x-auto">
+              <code>https://github.com/asemelinsky/kodomandy-modpack/releases/latest/download/kodomandy-server2.mrpack</code>
+            </pre>
+            <p className="text-xs text-muted-foreground">
+              Якщо вже маєш старий інстанс — видали його і імпортуй новий,
+              або просто запусти установник знову.
+            </p>
+          </div>
+        </details>
       </section>
 
       <ModSection
