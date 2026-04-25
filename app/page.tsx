@@ -176,6 +176,69 @@ export default function HomePage() {
           />
         </div>
 
+        <div className="mt-6 rounded-lg border-2 border-[var(--color-mc-diamond)]/40 bg-[var(--color-mc-diamond)]/5 p-5">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="text-2xl" aria-hidden>💻</span>
+            <h3 className="font-[family-name:var(--font-heading)] text-2xl leading-none text-[var(--color-mc-diamond)]">
+              Чи піде на твоєму ПК?
+            </h3>
+          </div>
+          <p className="text-xs text-muted-foreground mb-4">
+            Запустити можна навіть на слабкому ноуті — головне Java 21 і трохи
+            пам'яті. Якщо лагає — внизу інструкція як зменшити навантаження.
+          </p>
+          <div className="grid sm:grid-cols-2 gap-3 text-sm">
+            <div className="rounded border border-border/60 bg-card/40 p-4">
+              <div className="font-semibold text-[var(--color-mc-gold)] mb-2">
+                Мінімум (запуститься)
+              </div>
+              <ul className="space-y-1 text-foreground/90">
+                <li>· <strong>4 GB</strong> RAM системи</li>
+                <li>· <strong>2 GB</strong> Java heap (виставити вручну)</li>
+                <li>· 4-ядерний CPU, ≥2017 (i5-8xxx / Ryzen 5 1600)</li>
+                <li>· Intel UHD 620 / Vega 8 (вбудована)</li>
+                <li>· 6 GB вільно (HDD ок)</li>
+                <li>· Java 21, Windows 10 64-bit</li>
+              </ul>
+            </div>
+            <div className="rounded border-2 border-[var(--color-mc-grass)]/60 bg-[var(--color-mc-grass)]/10 p-4">
+              <div className="font-semibold text-[var(--color-mc-grass)] mb-2">
+                Рекомендовано (комфортно)
+              </div>
+              <ul className="space-y-1 text-foreground/90">
+                <li>· <strong>8-16 GB</strong> RAM системи</li>
+                <li>· <strong>6 GB</strong> Java heap</li>
+                <li>· 6-ядерний CPU (i5-12400 / Ryzen 5 5600)</li>
+                <li>· GTX 1050 / RX 560 / Arc A380</li>
+                <li>· SSD / NVMe</li>
+                <li>· Java 21, Windows 10/11</li>
+              </ul>
+            </div>
+          </div>
+          <details className="mt-4 group">
+            <summary className="cursor-pointer select-none text-xs text-muted-foreground hover:text-foreground transition-colors">
+              🔧 Лагає? Розкрий — інструкція для слабких ПК ↓
+            </summary>
+            <div className="mt-3 rounded border border-border/60 bg-card/40 p-4 text-sm space-y-2">
+              <p className="font-semibold">У Prism: Edit Instance → Settings → Java → Maximum memory:</p>
+              <ul className="space-y-0.5 text-foreground/90">
+                <li>· 4 GB RAM системи → <strong>2048 MB</strong> heap</li>
+                <li>· 6 GB → <strong>3072 MB</strong> heap</li>
+                <li>· 8 GB → <strong>4096 MB</strong> heap</li>
+              </ul>
+              <p className="font-semibold mt-3">У грі (F3 для статистики):</p>
+              <ul className="space-y-0.5 text-foreground/90">
+                <li>· Render distance: <strong>6 чанків</strong> замість 12</li>
+                <li>· Не літати Aeronautics-літаками (будувати — можна)</li>
+              </ul>
+              <p className="text-xs text-muted-foreground mt-3">
+                Попередження Java про малий heap — це нормально, ігноруй якщо
+                гра йде.
+              </p>
+            </div>
+          </details>
+        </div>
+
         <p className="mt-6 text-xs text-muted-foreground">
           Сервер: <code className="font-mono">46.225.227.42:25566</code> · Minecraft 1.21.1 · NeoForge 21.1.222 · Модпак v1.6.0
         </p>
