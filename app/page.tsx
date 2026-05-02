@@ -280,6 +280,36 @@ export default function HomePage() {
         mods={funMods}
       />
 
+      <section id="shaders" className="max-w-5xl mx-auto px-5 py-8">
+        <div className="rounded-lg border-2 border-[var(--color-mc-gold)]/40 bg-[var(--color-mc-gold)]/5 p-5">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="text-2xl" aria-hidden>✨</span>
+            <h3 className="font-[family-name:var(--font-heading)] text-2xl leading-none text-[var(--color-mc-gold)]">
+              Шейдери (за бажанням)
+            </h3>
+          </div>
+          <p className="text-sm text-foreground/90 mb-4">
+            Хочеш щоб гра виглядала ще красивіше — з реалістичною водою, тінями
+            і світлом? Можеш додати шейдери. Вони працюють тільки на твоєму
+            комп&apos;ютері (сервер не торкаємо), і вмикати їх для всього
+            класу не обов&apos;язково.
+          </p>
+          <p className="text-xs text-muted-foreground mb-4">
+            ⚠️ Шейдери навантажують відеокарту. Якщо ноут слабкий — краще не
+            ризикуй або бери легкий пак (Sildurs Lite).
+          </p>
+          <a
+            href="https://alive-napkin-c7e.notion.site/Kodomandry-3543ed9d44bf8039b507f0631eb2ea23"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded border-2 border-[var(--color-mc-gold)]/60 bg-[var(--color-mc-gold)]/10 hover:bg-[var(--color-mc-gold)]/20 transition-colors text-sm font-semibold text-[var(--color-mc-gold)]"
+          >
+            📖 Інструкція встановлення шейдерів
+            <span aria-hidden>↗</span>
+          </a>
+        </div>
+      </section>
+
       <footer className="border-t border-border mt-16 py-8 text-center text-sm text-muted-foreground">
         <p>Kodomandry · Minecraft сервер для юних айтішників · NeoForge 1.21.1</p>
         <p className="mt-2 text-xs">
