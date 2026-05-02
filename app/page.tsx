@@ -91,6 +91,7 @@ export default function HomePage() {
             os="Windows 10 / 11"
             emoji="🪟"
             href="https://github.com/asemelinsky/kodomandry-installer/releases/latest/download/kodomandry-installer-windows.zip"
+            cta="СКАЧАТИ ДЛЯ WINDOWS"
             primary
             hint={
               <ol className="list-decimal list-inside space-y-0.5">
@@ -106,6 +107,7 @@ export default function HomePage() {
             os="macOS"
             emoji="🍎"
             href="https://github.com/asemelinsky/kodomandry-installer/releases/latest/download/kodomandry-installer-macos.zip"
+            cta="СКАЧАТИ ДЛЯ MAC"
             hint={
               <ol className="list-decimal list-inside space-y-0.5">
                 <li>Скачай <code className="font-mono text-xs">kodomandry-installer-macos.zip</code></li>
@@ -331,6 +333,7 @@ function DownloadCard({
   emoji,
   href,
   hint,
+  cta,
   primary,
   disabled,
   details,
@@ -340,58 +343,52 @@ function DownloadCard({
   emoji: string;
   href?: string;
   hint: ReactNode;
+  cta?: string;
   primary?: boolean;
   disabled?: boolean;
   details?: ReactNode;
   detailsOpen?: boolean;
 }) {
   const wrapperClasses =
-    "rounded-lg border-2 transition-all overflow-hidden " +
+    "rounded-lg border-2 transition-all overflow-hidden flex flex-col " +
     (disabled
       ? "border-border bg-card/40 opacity-60"
       : primary
-        ? "border-[var(--color-mc-grass)] bg-[var(--color-mc-grass)]/10"
+        ? "border-[var(--color-mc-grass)] bg-[var(--color-mc-grass)]/5"
         : "border-border hover:border-[var(--color-mc-grass)]/60");
 
-  const rowClasses =
-    "flex items-center gap-4 p-5 " +
-    (disabled
-      ? "cursor-not-allowed"
-      : primary
-        ? "hover:bg-[var(--color-mc-grass)]/10"
-        : "");
+  const ctaLabel = cta ?? "СКАЧАТИ";
 
-  const content = (
-    <>
-      <span className="text-5xl shrink-0" aria-hidden>
-        {emoji}
-      </span>
-      <div className="flex-1 min-w-0">
-        <div className="font-[family-name:var(--font-heading)] text-2xl leading-none text-[var(--color-mc-gold)]">
-          {os}
-        </div>
-        <div className="text-sm text-muted-foreground mt-1">{hint}</div>
-      </div>
-      {!disabled && (
-        <span className="text-2xl shrink-0" aria-hidden>
-          ⬇
-        </span>
-      )}
-    </>
+  const button = disabled || !href ? (
+    <div className="w-full px-5 py-4 flex items-center justify-center gap-3 bg-muted/40 text-muted-foreground font-[family-name:var(--font-heading)] text-xl leading-none cursor-not-allowed select-none">
+      <span aria-hidden>⏳</span>
+      <span>СКОРО</span>
+    </div>
+  ) : (
+    <a
+      href={href}
+      className="group/btn w-full px-5 py-4 flex items-center justify-center gap-3 bg-[var(--color-mc-grass)] hover:bg-[var(--color-mc-grass)]/90 text-black font-[family-name:var(--font-heading)] text-xl md:text-2xl leading-none transition-colors shadow-inner"
+    >
+      <span className="text-2xl" aria-hidden>⬇</span>
+      <span>{ctaLabel}</span>
+      <span className="transition-transform group-hover/btn:translate-x-1" aria-hidden>→</span>
+    </a>
   );
-
-  const row =
-    disabled || !href ? (
-      <div className={rowClasses}>{content}</div>
-    ) : (
-      <a href={href} className={rowClasses}>
-        {content}
-      </a>
-    );
 
   return (
     <div className={wrapperClasses}>
-      {row}
+      <div className="flex items-start gap-4 p-5 flex-1">
+        <span className="text-5xl shrink-0" aria-hidden>
+          {emoji}
+        </span>
+        <div className="flex-1 min-w-0">
+          <div className="font-[family-name:var(--font-heading)] text-2xl leading-none text-[var(--color-mc-gold)] mb-2">
+            {os}
+          </div>
+          <div className="text-sm text-muted-foreground">{hint}</div>
+        </div>
+      </div>
+      {button}
       {details && (
         <details open={detailsOpen} className="group border-t border-border/60">
           <summary className="cursor-pointer select-none px-5 py-3 text-sm text-muted-foreground hover:text-foreground flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
