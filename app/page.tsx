@@ -2,8 +2,10 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { educationalMods, funMods } from "./data/mods";
 import { ModCard } from "@/components/mod-card";
+import { getInstallerVersion } from "@/lib/installer-version";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const installerVersion = await getInstallerVersion();
   return (
     <main className="flex-1">
       {/* HERO */}
@@ -93,6 +95,7 @@ export default function HomePage() {
             href="https://github.com/asemelinsky/kodomandry-installer/releases/latest/download/kodomandry-installer-windows.zip"
             cta="СКАЧАТИ ДЛЯ WINDOWS"
             primary
+            version={installerVersion}
             hint={
               <ol className="list-decimal list-inside space-y-0.5">
                 <li>Скачай <code className="font-mono text-xs">kodomandry-installer-windows.zip</code></li>
@@ -108,6 +111,7 @@ export default function HomePage() {
             emoji="🍎"
             href="https://github.com/asemelinsky/kodomandry-installer/releases/latest/download/kodomandry-installer-macos.zip"
             cta="СКАЧАТИ ДЛЯ MAC"
+            version={installerVersion}
             hint={
               <ol className="list-decimal list-inside space-y-0.5">
                 <li>Скачай <code className="font-mono text-xs">kodomandry-installer-macos.zip</code></li>
@@ -338,6 +342,7 @@ function DownloadCard({
   disabled,
   details,
   detailsOpen,
+  version,
 }: {
   os: string;
   emoji: string;
@@ -348,6 +353,7 @@ function DownloadCard({
   disabled?: boolean;
   details?: ReactNode;
   detailsOpen?: boolean;
+  version?: { tag: string; formattedDate: string } | null;
 }) {
   const wrapperClasses =
     "rounded-lg border-2 transition-all overflow-hidden flex flex-col " +
@@ -389,6 +395,12 @@ function DownloadCard({
         </div>
       </div>
       {button}
+      {version && !disabled && (
+        <div className="px-5 py-2 text-xs font-mono text-muted-foreground border-t border-border/40 bg-card/40">
+          версія <span className="text-foreground/90">{version.tag}</span>
+          {" · "}оновлено {version.formattedDate}
+        </div>
+      )}
       {details && (
         <details open={detailsOpen} className="group border-t border-border/60">
           <summary className="cursor-pointer select-none px-5 py-3 text-sm text-muted-foreground hover:text-foreground flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
