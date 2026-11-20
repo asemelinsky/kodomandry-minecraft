@@ -24,7 +24,7 @@ export default async function HomePage() {
               NeoForge 1.21.1 · Minecraft сервер
             </span>
             <span className="px-3 py-1 rounded bg-[var(--color-mc-gold)]/20 border border-[var(--color-mc-gold)]/40 text-[var(--color-mc-gold)]">
-              Модпак v1.6.0
+              Модпак v1.7.0
             </span>
           </div>
 
@@ -246,7 +246,7 @@ export default async function HomePage() {
         </div>
 
         <p className="mt-6 text-xs text-muted-foreground">
-          Сервер: <code className="font-mono">46.225.227.42:25566</code> · Minecraft 1.21.1 · NeoForge 21.1.222 · Модпак v1.6.0
+          Сервер: <code className="font-mono">46.225.227.42:25566</code> · Minecraft 1.21.1 · NeoForge 21.1.222 · Модпак v1.7.0
         </p>
 
         <details className="mt-4 group">
