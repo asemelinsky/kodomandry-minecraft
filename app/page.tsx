@@ -102,8 +102,65 @@ export default async function HomePage() {
                 <li>Розпакуй архів (правий клік → <strong>Витягти все</strong>)</li>
                 <li>Запусти <code className="font-mono text-xs">install.cmd</code> подвійним кліком</li>
                 <li>Якщо SmartScreen/Defender блокує — <strong>Докладніше</strong> → <strong>Виконати попри все</strong></li>
+                <li><strong>⚠️ Якщо Windows пише &quot;Smart App Control заблокував файл&quot;</strong> — розкрий інструкцію нижче ↓</li>
                 <li>Далі — читай і натискай <strong>OK</strong> у спливаючих вікнах</li>
               </ol>
+            }
+            detailsLabel="📖 Якщо Windows блокує запуск"
+            details={
+              <>
+                <p className="font-semibold text-foreground/90">
+                  1️⃣ Вікно SmartScreen («Windows захистила ваш ПК»)
+                </p>
+                <p className="mt-2">
+                  Натисни <strong>Докладніше</strong> (нім. <em>Weitere Informationen</em>),
+                  потім <strong>Виконати попри все</strong> (нім. <em>Trotzdem ausführen</em>).
+                </p>
+
+                <p className="mt-5 font-semibold text-foreground/90">
+                  2️⃣ Вікно «Smart App Control заблокував файл, який може бути небезпечним»
+                </p>
+                <p className="mt-2">
+                  У цьому вікні кнопки «Виконати попри все» <strong>немає</strong> — є тільки{" "}
+                  <strong>OK</strong>. Це захист Windows 11, його треба вимкнути один раз:
+                </p>
+                <ol className="mt-3 space-y-2 list-decimal list-inside">
+                  <li>
+                    Натисни <strong>Пуск</strong> і набери{" "}
+                    <em>Безпека Windows</em> (нім. <em>Windows-Sicherheit</em>). Відкрий програму.
+                  </li>
+                  <li>
+                    Зліва обери <strong>Керування програмами та браузером</strong>{" "}
+                    (нім. <em>App- &amp; Browsersteuerung</em>).
+                  </li>
+                  <li>
+                    Натисни <strong>Параметри розумного керування програмами</strong>{" "}
+                    (нім. <em>Smart App Control-Einstellungen</em>).
+                  </li>
+                  <li>
+                    Постав <strong>Вимкнено</strong> (нім. <em>Aus</em>) і підтверди.
+                  </li>
+                  <li>
+                    Знову відкрий розпаковану теку{" "}
+                    <code className="font-mono text-xs">kodomandry-installer-windows</code>{" "}
+                    і двічі клікни <code className="font-mono text-xs">install.cmd</code>.
+                  </li>
+                </ol>
+                <p className="mt-3 text-xs text-muted-foreground">
+                  ⚠️ Увімкнути Smart App Control назад можна лише перевстановленням
+                  Windows — для комп&apos;ютера, на якому граєш, це зазвичай не проблема.
+                  Якщо не впевнений — спитай дорослих або напиши вчителю.
+                </p>
+                <p className="mt-3 text-sm text-foreground/90">
+                  🎉 Далі установник сам показуватиме підказки — читай їх і натискай{" "}
+                  <strong>OK</strong>. Коли попросить нікнейм — введи свій (3-16 символів,
+                  латиниця і цифри).
+                </p>
+                <p className="mt-3 text-xs text-muted-foreground">
+                  💡 Оновити моди пізніше можна тим самим <code className="font-mono text-xs">install.cmd</code>:
+                  запусти його знову, він докачає нові моди.
+                </p>
+              </>
             }
           />
           <DownloadCard
@@ -112,6 +169,7 @@ export default async function HomePage() {
             href="https://github.com/asemelinsky/kodomandry-installer/releases/latest/download/kodomandry-installer-macos.zip"
             cta="СКАЧАТИ ДЛЯ MAC"
             version={installerVersion}
+            detailsLabel="📖 Як дозволити запуск на macOS"
             hint={
               <ol className="list-decimal list-inside space-y-0.5">
                 <li>Скачай <code className="font-mono text-xs">kodomandry-installer-macos.zip</code></li>
@@ -341,6 +399,7 @@ function DownloadCard({
   primary,
   disabled,
   details,
+  detailsLabel,
   detailsOpen,
   version,
 }: {
@@ -352,6 +411,7 @@ function DownloadCard({
   primary?: boolean;
   disabled?: boolean;
   details?: ReactNode;
+  detailsLabel?: string;
   detailsOpen?: boolean;
   version?: { tag: string; formattedDate: string } | null;
 }) {
@@ -404,7 +464,7 @@ function DownloadCard({
       {details && (
         <details open={detailsOpen} className="group border-t border-border/60">
           <summary className="cursor-pointer select-none px-5 py-3 text-sm text-muted-foreground hover:text-foreground flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
-            <span>📖 Як дозволити запуск на macOS</span>
+            <span>{detailsLabel ?? "📖 Як дозволити запуск"}</span>
             <span className="text-xs transition-transform group-open:rotate-180" aria-hidden>
               ▼
             </span>
