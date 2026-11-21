@@ -238,6 +238,85 @@ export default async function HomePage() {
               </>
             }
           />
+          <div className="md:col-span-2">
+            <DownloadCard
+              os="Linux"
+              emoji="🐧"
+              href="https://github.com/asemelinsky/kodomandry-installer/releases/latest/download/kodomandry-installer-linux.zip"
+              cta="СКАЧАТИ ДЛЯ LINUX"
+              version={installerVersion}
+              detailsLabel="📖 Докладна інструкція для Linux"
+              hint={
+                <ol className="list-decimal list-inside space-y-0.5">
+                  <li>Скачай <code className="font-mono text-xs">kodomandry-installer-linux.zip</code></li>
+                  <li>Розпакуй архів (правий клік → <strong>Extract</strong>)</li>
+                  <li>Відкрий Terminal у теці зі скриптом і виконай:{" "}
+                    <code className="font-mono text-xs">chmod +x install.sh &amp;&amp; ./install.sh</code>
+                  </li>
+                  <li>Чекай 3–10 хвилин, введи нікнейм, коли попросить</li>
+                  <li>Запускай з ярлика <strong>Kodomandry Minecraft</strong> на робочому столі або в меню програм</li>
+                </ol>
+              }
+              details={
+                <>
+                  <p className="font-semibold text-foreground/90">
+                    🐧 Для яких систем
+                  </p>
+                  <p className="mt-2">
+                    Fedora 38+, Ubuntu 22.04+, Debian 12+, Linux Mint, Arch / Manjaro,
+                    openSUSE. Процесори: x86_64 і ARM (aarch64).
+                  </p>
+
+                  <p className="mt-5 font-semibold text-foreground/90">
+                    ▶️ Як запустити
+                  </p>
+                  <ol className="mt-2 space-y-2 list-decimal list-inside">
+                    <li>
+                      Розпакуй архів. У файловому менеджері відкрий теку зі скриптом →
+                      правий клік → <strong>Відкрити в терміналі</strong> (Open in Terminal).
+                    </li>
+                    <li>
+                      Виконай:
+                      <pre className="mt-1 px-3 py-2 bg-muted rounded text-xs font-mono overflow-x-auto">chmod +x install.sh{"\n"}./install.sh</pre>
+                    </li>
+                    <li>
+                      Скрипт покаже вікно (zenity або kdialog) або запитає в терміналі.
+                      Коли попросить нікнейм — введи свій (3-16 символів, латиниця і цифри).
+                    </li>
+                    <li>
+                      Усе ставиться в твою домашню теку{" "}
+                      <code className="font-mono text-xs">~/.local/share/Kodomandry</code>:
+                      лаунчер Prism, Java 21, модпак і сервер у списку.
+                    </li>
+                  </ol>
+
+                  <p className="mt-5 font-semibold text-foreground/90">
+                    🛠 Якщо щось не так
+                  </p>
+                  <ul className="mt-2 space-y-2 list-disc list-inside">
+                    <li>
+                      Скрипт каже, що не вистачає <code className="font-mono text-xs">curl</code>,{" "}
+                      <code className="font-mono text-xs">unzip</code> чи <code className="font-mono text-xs">perl</code> —
+                      він сам покаже команду для твого дистрибутива; виконай її і запусти скрипт знову.
+                    </li>
+                    <li>
+                      Помилка <em>AppImage failed to mount</em> / <em>cannot mount AppImage</em> —
+                      потрібен FUSE. Fedora:{" "}
+                      <code className="font-mono text-xs">sudo dnf install -y fuse fuse-libs</code>.
+                      Ubuntu/Debian:{" "}
+                      <code className="font-mono text-xs">sudo apt install -y libfuse2</code>.
+                    </li>
+                  </ul>
+
+                  <p className="mt-3 text-xs text-muted-foreground">
+                    💡 Щоб оновити моди пізніше — просто запусти{" "}
+                    <code className="font-mono text-xs">./install.sh</code> ще раз: він докачає нові
+                    моди й прибере непотрібні.
+                  </p>
+                </>
+              }
+            />
+          </div>
         </div>
 
         <div className="mt-6 rounded-lg border-2 border-[var(--color-mc-diamond)]/40 bg-[var(--color-mc-diamond)]/5 p-5">
